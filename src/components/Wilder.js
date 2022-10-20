@@ -2,7 +2,7 @@ import Skill from "./Skill";
 import blank_profile from '../assets/blank_profile.png';
 
 
-const Wilder = ({wilderInfos}) => {
+const Wilder = ({wilderInfos, onDeleteButtonClicked}) => (
     <article className="card">
         <img src={blank_profile} alt="Jane Doe Profile" />
         <h3>{wilderInfos.name}</h3>
@@ -15,13 +15,15 @@ const Wilder = ({wilderInfos}) => {
         <h4>Wild Skills</h4>
         <ul className="skills">
             {
-                wilderInfos.skills.map((skill) => (
-                <Skill key={skill.title} skillTitle={skill.title} skillRating={skill.votes} />
+                wilderInfos.skills?.map((skill) => (
+                <Skill key={skill.name} skillTitle={skill.name} skillRating={skill.votes} />
             ))
             }
 
         </ul>
+        <button onClick={onDeleteButtonClicked}>Supprimer</button>
     </article>
-}
+    );
+
 
 export default Wilder;

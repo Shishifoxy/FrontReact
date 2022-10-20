@@ -1,9 +1,12 @@
-const Skill = ({ skillTitle, skillRating }) => {
-
+const Skill = ({ skillTitle, skillRating }) => (
         <li>
-            {skillTitle} <span className="votes">{skillRating}</span>
+            {skillTitle}
+            {
+                skillRating ? <span className="votes">{skillRating}</span> : <div />
+        }
         </li>
+    );
 
-}
+
 
 export default Skill;
